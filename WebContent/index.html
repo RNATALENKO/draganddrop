@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="US-ASCII">
+<title>Insert title here</title>
+
+
+<script src="createopentask.js"></script>
+<script src="loadlists.js"></script>
+<script src="closetask.js" defer></script>
+
+
+
+
+	<style>
+		.dropcontainer{
+			display:flex; 
+		}
+		
+		.dropzone{
+			border:1px solid grey; 
+			width:50%; 
+		}
+		
+		.ul{
+			display:flex; 
+			list-style:none;
+			flex-wrap:wrap;
+			
+		}
+		
+		.listitem{
+			padding:10px;
+			margin-right:10px;  
+			width: 60px; 
+			height:25px; 
+			border:1px solid blue; 
+			cursor:pointer; 
+			margin-bottom:10px;
+		}
+	
+	</style>
+
+
+
+</head>
+<body>
+
+		
+
+		<div>
+			<input id="content"> 
+			<button id="btn">create task</button>
+		</div>
+		
+		<br>
+		
+		<div class="dropcontainer">
+			<div id="leftdropzone" class="dropzone leftdropzone">
+				<ul id="leftul" class="ul">
+				</ul>
+			</div>
+			<div id="rightdropzone" class="dropzone rightdropzone">
+				<ul id="rightul" class="ul">
+				</ul>
+			</div>
+		</div>
+		<script>addTask();</script>
+		<script>loadLists();</script>
+</body>
+</html>
