@@ -19,7 +19,6 @@ function storeList(listname, array){
 
 function loadLists(){
 	
-	
 
 	openTasks = getList("OpenTasks");
 	closedTasks = getList("ClosedTasks");

@@ -64,6 +64,9 @@ function addTask(){
 		
 		//create the list item
 		createListItem(leftul, input, id); 
+		
+		//refresh page to activate drag and drop
+		//location.reload();
 	
 	});
 }
