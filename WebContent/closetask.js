@@ -87,26 +87,5 @@ rightdropzone.addEventListener("drop", function(event){
 });
 
 
-//function that gets dragged element's id
-function getId(listelement){
-		return listelement.querySelector("#idDiv").innerHTML; 
-}
 
-//function that will remove an item from an array
-function removeItem(array, id){
-	
-	var currentObject = null;
-	var currentId = "";
-	
-	for(var x = 0; x < array.length; x++){
-		currentObject = array[x];
-		currentId = currentObject["id"];
-		
-		if(id == currentId){
-			array.splice(x,1);
-		}
-	}
-	
-	return array; 
-}
 

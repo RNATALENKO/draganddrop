@@ -3,18 +3,7 @@
  */
 
 
-//returns an array with the list
-function getList(listname){
-	var array = []; 
-	if(localStorage.getItem(listname) != null){
-		array = JSON.parse(localStorage.getItem(listname));
-	}
-	return array; //if list doesn't exist, length should be zero
-}
 
-function storeList(listname, array){
-	localStorage.setItem(listname, JSON.stringify(array));
-}
 
 
 function loadLists(){

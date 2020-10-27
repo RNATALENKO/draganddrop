@@ -5,10 +5,6 @@
 openTasks = []; 
 
 
-//converts array to string
-function stringify(array){
-	return JSON.stringify(array);
-}
 
 //creates html li item, adds to LEFT UL
 function createListItem(list, description, id){
