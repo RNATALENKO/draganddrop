@@ -13,21 +13,21 @@ var rightlist = document.querySelector("#rightul");
 var draggedElement = null; 
 
 
-
-//on the drag start get the elemnet, and set it's class to .dragging, to recognize it
+//get all the left draggables, make sure you query select from the list, as to not interwine left and right with draggable attribute
 var leftlist = document.querySelector("#leftul");
-console.log(leftlist);
 var leftDraggables = leftlist.querySelectorAll("[draggable = true]");
+console.log("left Draggables ");
 console.log(leftDraggables);
 
 
 //loop through all left draggables, and add a listtener for a drag start, then store in dragged element
 leftDraggables.forEach(function(draggable){
 	
+	//on the drag start, add dragging class, to distinguish element dragged from non-dragged
 	draggable.addEventListener("dragstart", function(){
 		draggable.classList.add("dragging");
 		draggedElement = draggable; 
-		console.log(draggedElement);
+		//console.log(draggedElement);
 	});
 	
 	draggable.addEventListener("dragend", function(event){
@@ -47,8 +47,11 @@ rightdropzone.addEventListener("dragover", function(event){
 
 
 
+
+
 //on the drop event (which isn't working right now)
 rightdropzone.addEventListener("drop", function(event){
+	
 	
 	//append the dragged element to the rightlist
 	rightlist.appendChild(draggedElement);
@@ -77,6 +80,9 @@ rightdropzone.addEventListener("drop", function(event){
 	//store the closedTasks and openTasks array back to local storage to update
 	storeList("ClosedTasks", closedTasks);
 	storeList("OpenTasks", openTasks);
+	
+	//refresh location
+	location.reload(); 
 	
 });
 
