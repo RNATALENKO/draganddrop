@@ -3,7 +3,7 @@
  */
 
 var closedTasks = []; 
-
+closedTasks = getList("ClosedTasks");
 
 //get rightdropzone
 var rightdropzone = document.querySelector(".rightdropzone");
@@ -46,9 +46,9 @@ rightdropzone.addEventListener("dragover", function(event){
 
 
 
+
 //on the drop event (which isn't working right now)
 rightdropzone.addEventListener("drop", function(event){
-	
 	
 	//append the dragged element to the rightlist
 	rightlist.appendChild(draggedElement);
