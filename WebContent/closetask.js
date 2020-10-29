@@ -45,10 +45,6 @@ rightdropzone.addEventListener("dragover", function(event){
 
 
 
-
-
-
-
 //on the drop event (which isn't working right now)
 rightdropzone.addEventListener("drop", function(event){
 	
