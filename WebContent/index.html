@@ -11,17 +11,38 @@
 <script src="closetask.js" defer></script><!--drag and drop  -->
 <script src="opentask.js" defer></script><!-- drag and drop -->
 <script src="deletetask.js" defer></script>
+<script src="displaytask.js"></script>
 
 
 
 	<style>
+	
+	
+		.description{
+			resize:none; 
+		}
+		
+		.inp-w{
+			width:200px; 
+			margin-bottom:20px;
+		}
+	
 		.dropcontainer{
+			width:100%;
 			display:flex; 
+			
 		}
 		
 		.dropzone{
 			border:1px solid grey; 
 			width:50%; 
+			border-radius:10px; 
+			margin-bottom:10px;  
+			padding:20px;
+		}
+		
+		.leftdropzone{
+			margin-right:10px; 
 		}
 		
 		.ul{
@@ -34,23 +55,60 @@
 		.listitem{
 			padding:10px;
 			margin-right:10px;  
-			width: 60px; 
-			height:25px; 
-			border:1px solid blue; 
+			width: 115px; 
+			height:35px; 
+			border:1px solid grey; 
 			cursor:pointer; 
 			margin-bottom:10px;
+			border-radius:15px; 
+			overflow:hidden;
 		}
+		
+	
 		
 		.dragging{
 			opacity: .5; 
 		}
-		 
-		.trashDiv{
-			display:inline; 
-			width:100%; 
-			height:100%;
-			border:1px solid black; 
+		
+		
+		.displaycontainer{
+			width:25%; 
+			display:none;  
+			border: 1px solid grey; 
+			margin-left: 10px; 
+			border-radius:15px; 
+			padding:10px;
 		}
+		
+		.contentcontainer{
+			border:1px solid grey;  
+			border-radius:15px; 
+ 
+		}
+		
+		
+		 /* task internal */
+		.trashDiv{
+			position:relative;
+			display:inline; 
+			border:1px solid black; 
+			
+			
+		}
+		
+		.descriptionDiv{
+			display:none; 
+		}
+		
+		.dateDiv{ 
+			display:none; 
+		}
+		
+		.timeDiv{
+			display:none;
+		}
+		
+		
 	
 	</style>
 
@@ -59,26 +117,42 @@
 </head>
 <body>
 
-		
+			<div>
+				<input id="content" class="inp-w"> 
+				<button id="createbtn">create task</button>
+			</div>
+	
+			<div>
+				<input type="text" id="description" class="description inp-w"></input>
+			</div>
+	
+			<br>
+			
+			<div class="dropcontainer">
+				<div id="leftdropzone" class="dropzone leftdropzone">
+					<ul id="leftul" class="ul">
+					</ul>
+				</div>
+				<div id="rightdropzone" class="dropzone rightdropzone">
+					<ul id="rightul" class="ul">
+					</ul>
+				</div>
+				
+				<div id="displaycontainer" class="displaycontainer">
 
-		<div>
-			<input id="content"> 
-			<button id="btn">create task</button>
+				<div id="contentcontainer" class="contentcontainer">
+					<h1 id="displaycontent">title</h1>
+					<p id="displaydescription">description</p>
+					<span id="displaydate">date</span> <span id ="displaytime">time</span>
+				</div>
+
+
 		</div>
-		
-		<br>
-		
-		<div class="dropcontainer">
-			<div id="leftdropzone" class="dropzone leftdropzone">
-				<ul id="leftul" class="ul">
-				</ul>
+				
+				
 			</div>
-			<div id="rightdropzone" class="dropzone rightdropzone">
-				<ul id="rightul" class="ul">
-				</ul>
-			</div>
-		</div>
-		<script>addTask();</script>
-		<script>loadLists();</script>
+			<script>addTask();</script>
+			<script>loadLists();</script>
+			<script>displayTasks();</script>
 </body>
 </html>
