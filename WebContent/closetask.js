@@ -48,18 +48,23 @@ rightdropzone.addEventListener("dragover", function(event){
 //on the drop event (which isn't working right now)
 rightdropzone.addEventListener("drop", function(event){
 	
-	
 	//append the dragged element to the rightlist
 	rightlist.appendChild(draggedElement);
 	
 	//get input and content
-	var input = draggedElement.querySelector("#contentDiv").innerHTML;
-	var id = draggedElement.querySelector("#idDiv").innerHTML;
+	var input = draggedElement.querySelector("#contentDiv").innerHTML; 
+	var id = draggedElement.querySelector("#idDiv").innerHTML; 
+	var taskdescription = draggedElement.querySelector("#descriptionDiv").innerHTML;
+	var date = draggedElement.querySelector("#dateDiv").innerHTML;
+	var time = draggedElement.querySelector("#timeDiv").innerHTML;
 	
 	//add the dragged element info to a task object
 	var taskObject = {
 			content: input,
-			id: id
+			id: id,
+			description: taskdescription,
+			date: date,
+			time: time
 	};
 	
 	

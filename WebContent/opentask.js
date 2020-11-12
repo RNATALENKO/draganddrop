@@ -50,11 +50,17 @@ leftdropzone.addEventListener("drop", function(){
 	//do the update to storage, add to open tasks, remove from close tasks, then update storage with both lists
 	var input = draggedElement.querySelector("#contentDiv").innerHTML; 
 	var id = draggedElement.querySelector("#idDiv").innerHTML; 
+	var taskdescription = draggedElement.querySelector("#descriptionDiv").innerHTML;
+	var date = draggedElement.querySelector("#dateDiv").innerHTML;
+	var time = draggedElement.querySelector("#timeDiv").innerHTML;
 	
 	//create and store into task object
 	var taskObject = {
-			content: input, 
-			id: id
+			content: input,
+			id: id,
+			description: taskdescription,
+			date: date,
+			time: time
 	}
 	
 	//push the taskobject into the opent task array

@@ -24,6 +24,7 @@ function createListItem(list, content, id, taskdescription, date, time){
 	var contentDiv = document.createElement("DIV");
 	contentDiv.appendChild(document.createTextNode(content));
 	contentDiv.setAttribute("id", "contentDiv");
+	contentDiv.classList.add("contentDiv");
 	
 	//create id div
 	var idDiv = document.createElement("DIV");
