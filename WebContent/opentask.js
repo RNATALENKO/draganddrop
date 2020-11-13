@@ -53,6 +53,7 @@ leftdropzone.addEventListener("drop", function(){
 	var taskdescription = draggedElement.querySelector("#descriptionDiv").innerHTML;
 	var date = draggedElement.querySelector("#dateDiv").innerHTML;
 	var time = draggedElement.querySelector("#timeDiv").innerHTML;
+	var color = draggedElement.querySelector("#colorDiv").style.backgroundColor; 
 	
 	//create and store into task object
 	var taskObject = {
@@ -60,7 +61,8 @@ leftdropzone.addEventListener("drop", function(){
 			id: id,
 			description: taskdescription,
 			date: date,
-			time: time
+			time: time, 
+			color: color
 	}
 	
 	//push the taskobject into the opent task array

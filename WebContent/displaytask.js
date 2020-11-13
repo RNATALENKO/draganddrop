@@ -12,6 +12,7 @@ function injectContent(element){
 	displaydescription.innerHTML = element.querySelector("#descriptionDiv").innerHTML;
 	displaydate.innerHTML = element.querySelector("#dateDiv").innerHTML;
 	displaytime.innerHTML = element.querySelector("#timeDiv").innerHTML;
+	displaycolor.style.backgroundColor = element.querySelector("#colorDiv").style.backgroundColor; 
 }
 
 

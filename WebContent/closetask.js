@@ -57,6 +57,7 @@ rightdropzone.addEventListener("drop", function(event){
 	var taskdescription = draggedElement.querySelector("#descriptionDiv").innerHTML;
 	var date = draggedElement.querySelector("#dateDiv").innerHTML;
 	var time = draggedElement.querySelector("#timeDiv").innerHTML;
+	var color = draggedElement.querySelector("#colorDiv").style.backgroundColor; 
 	
 	//add the dragged element info to a task object
 	var taskObject = {
@@ -64,7 +65,8 @@ rightdropzone.addEventListener("drop", function(event){
 			id: id,
 			description: taskdescription,
 			date: date,
-			time: time
+			time: time,
+			color:color
 	};
 	
 	

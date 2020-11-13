@@ -12,6 +12,7 @@
 <script src="opentask.js" defer></script><!-- drag and drop -->
 <script src="deletetask.js" defer></script>
 <script src="displaytask.js"></script>
+<script src="color.js" defer></script>
 
 
 
@@ -20,6 +21,10 @@
 	
 		.description{
 			resize:none; 
+		}
+		
+		.hexinput{
+			width:75px; 
 		}
 		
 		.inp-w{
@@ -53,10 +58,10 @@
 		}
 		
 		.listitem{
-			padding:10px;
+			padding:15px;
 			margin-right:10px;  
-			width: 115px; 
-			height:35px; 
+			width: 150px; 
+			height:85px; 
 			border:1px solid grey; 
 			cursor:pointer; 
 			margin-bottom:10px;
@@ -88,8 +93,12 @@
 		}
 		
 		
-		
-		
+		.displaycolor{
+			width:25px; 
+			height:25px; 
+			border:1px solid black; 
+			
+		}
 		
 		 /* task internal */
 		 .contentDiv{
@@ -111,11 +120,20 @@
 		}
 		
 		.dateDiv{ 
-			display:none; 
+			border:1px solid black;
+			display:inline; 
 		}
 		
 		.timeDiv{
-			display:none;
+			border:1px solid black; 
+			display:inline;
+		}
+		
+		.colorDiv{
+			width:15px; 
+			height: 15px; 
+			border:1px solid black; 
+			display:block; 
 		}
 		
 		
@@ -137,6 +155,9 @@
 	
 			<div>
 				<input type="text" id="description" class="description inp-w"></input>
+				<input type="text" id="hexinput" class="hexinput" value="hex">
+				<button id="hexbutton" class="hexbutton">Add to Pallette</button>
+				
 			</div>
 	
 			<br>
@@ -157,9 +178,8 @@
 					<h1 id="displaycontent">title</h1>
 					<p id="displaydescription">description</p>
 					<span id="displaydate">date</span> <span id ="displaytime">time</span>
+					<p id="displaycolor" class="displaycolor"><p>
 				</div>
-
-
 		</div>
 				
 				

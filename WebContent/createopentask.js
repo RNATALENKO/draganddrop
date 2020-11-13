@@ -11,8 +11,7 @@ openTasks = [];
 
 
 //creates html li item, adds to LEFT UL
-function createListItem(list, content, id, taskdescription, date, time){
-	
+function createListItem(list, content, id, taskdescription, date, time, color){
 	
 	//create list element 
 	var listelement = document.createElement("LI");
@@ -58,7 +57,11 @@ function createListItem(list, content, id, taskdescription, date, time){
 	timeDiv.setAttribute("id", "timeDiv");
 	timeDiv.classList.add("timeDiv");
 	
-	
+	//create color div
+	var colorDiv = document.createElement("DIV");
+	colorDiv.setAttribute("id", "colorDiv");
+	colorDiv.style.backgroundColor = color; 
+	colorDiv.classList.add("colorDiv");
 	
 	//add list item to left ul
 	listelement.appendChild(contentDiv)
@@ -67,7 +70,7 @@ function createListItem(list, content, id, taskdescription, date, time){
 	listelement.appendChild(descriptionDiv);
 	listelement.appendChild(dateDiv);
 	listelement.appendChild(timeDiv);
-	
+	listelement.appendChild(colorDiv);
 	list.appendChild(listelement);
 }
 
@@ -94,13 +97,18 @@ function addTask(){
 		//time
 		var time = dateObj.getHours() + ":" + dateObj.getMinutes() + ":" + dateObj.getSeconds();
 		
+		//if valid hex color is input, otherwise it's white
+		var colorinput = hexinput.value
+		var color = validColor(colorinput)? colorinput :"#ffffff";
+		
 		//set the object 
 		var taskObject = {
 				content: input,
 				id: id,
 				description: taskdescription,
 				date: date,
-				time: time
+				time: time,
+				color: color
 		}
 		
 		
@@ -112,7 +120,7 @@ function addTask(){
 		
 		/* this method breaks down and prevents passing in the task description*/
 		//create the list item
-		createListItem(leftul, input, id, taskdescription, date); 
+		createListItem(leftul, input, id, taskdescription, date, time, color); 
 		
 		//refresh page to activate drag and drop
 		location.reload();
