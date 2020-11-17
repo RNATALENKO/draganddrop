@@ -121,14 +121,25 @@ function getItemFromList(listName, id){
 	return currentObject; 
 }
 
-//a function that merges two lists, and stores them
-function mergeLists(listOne, listTwo){
+//a function that merges two lists and returns the merged array
+//but if one is null or empty return the other
+function mergeArrays(listOneArray, listTwoArray){
 	
-	var listThree = null; 
+	var listThreeArray = null; 
 	
-	//if both lists are not null
-	if(!listOne && !listTwo){
-		
+	//if both list arrays are not empty
+	if(listOneArray.length > 0 && listTwoArray.length> 0){
+		listThreeArray = listOneArray.concat(listTwoArray);
 	}
+	else if(listOneArray.length == 0){
+		return listTwoArray; 
+	}
+	else if(listTwoArray.length == 0){
+		return listOneArray;
+	}
+	
+	return listThreeArray; 
+	
+	
 	
 }

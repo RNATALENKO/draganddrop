@@ -3,6 +3,8 @@
  */
 
 var clickedElement = null; 
+var mergedArray = null; 
+
 
 
 //inputs an element, and transfers it's html data into the display container
@@ -43,10 +45,24 @@ function displayTasks(){
 				injectContent(clickedElement); //inject the content of clicked element
 				displaycontainer.style.display = "block"; //show display div
 				
-				//display the matching object from list
+				
+				//get the open and closed task lists
+				openTasks = getList("OpenTasks");
+				closedTasks = getList("ClosedTasks");
+				
+				//merge lists
+				var mergedArray = mergeArrays(openTasks, closedTasks);
+				
+				//store mergedlist
+				storeList("MergedList",mergedArray);
+				
+				//retreive id of clicked element and retrieve from merged list
 				var id = clickedElement.querySelector("#idDiv").innerHTML; 
-				var object = getItemFromList("OpenTasks", id);
-				alert(object.date);
+				var clickedElementObject = getItemFromList("MergedList", id);
+				
+				//store the object as previously clicked element
+				storeList("PreviousElement", clickedElementObject);
+				
 				
 			}
 		});
