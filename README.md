@@ -1,0 +1,2 @@
+# draganddrop
+A simplified version of my taskboard that makes the structure and functionality more readable. I re-designed it after my task board grew large and convoluted and I couldn't get the drop event working. I re-designed it with far less code, let some functions handle list manipulation. Now you can see the local storage lists update dynamically as you drag and drop items from the board. It's pretty cool!
