@@ -15,6 +15,11 @@ function injectContent(element){
 	displaycolor.style.backgroundColor = element.querySelector("#colorDiv").style.backgroundColor; 
 }
 
+function hideDisplay(){
+
+	displaycontainer.style.display= "none";
+}
+
 
 function displayTasks(){
 	
@@ -28,7 +33,6 @@ function displayTasks(){
 	//add an event listener to all the tasks and if it's clicked store the task
 	allTasks.forEach(function(element){
 		
-		
 		//store the clicked element 
 		element.addEventListener("click", function(event){
 			
@@ -38,9 +42,13 @@ function displayTasks(){
 			if(event.target.getAttribute("id") != "trashDiv"){
 				injectContent(clickedElement); //inject the content of clicked element
 				displaycontainer.style.display = "block"; //show display div
+				
+				//display the matching object from list
+				var id = clickedElement.querySelector("#idDiv").innerHTML; 
+				var object = getItemFromList("OpenTasks", id);
+				alert(object.date);
+				
 			}
-			
-			
 		});
 	})
 }

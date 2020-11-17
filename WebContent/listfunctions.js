@@ -102,3 +102,33 @@ function removeFromList(list, id){
 	
 	return array; 
 }
+
+//returns the data of the object based on Id
+function getItemFromList(listName, id){
+	
+	//get the list array
+	var array = getList(listName);
+	var currentObject = null; 
+	
+	//get the matching object
+	array.forEach(function(element){
+		
+		if(id == element.id){
+			currentObject = element; 
+		}
+	});
+	
+	return currentObject; 
+}
+
+//a function that merges two lists, and stores them
+function mergeLists(listOne, listTwo){
+	
+	var listThree = null; 
+	
+	//if both lists are not null
+	if(!listOne && !listTwo){
+		
+	}
+	
+}
