@@ -4,6 +4,7 @@
 
 var clickedElement = null; 
 var mergedArray = null; 
+var previousElementArray = [];
 
 
 
@@ -15,11 +16,6 @@ function injectContent(element){
 	displaydate.innerHTML = element.querySelector("#dateDiv").innerHTML;
 	displaytime.innerHTML = element.querySelector("#timeDiv").innerHTML;
 	displaycolor.style.backgroundColor = element.querySelector("#colorDiv").style.backgroundColor; 
-}
-
-function hideDisplay(){
-
-	displaycontainer.style.display= "none";
 }
 
 
@@ -51,17 +47,18 @@ function displayTasks(){
 				closedTasks = getList("ClosedTasks");
 				
 				//merge lists
-				var mergedArray = mergeArrays(openTasks, closedTasks);
+				mergedArray = mergeArrays(openTasks, closedTasks);
 				
 				//store mergedlist
 				storeList("MergedList",mergedArray);
 				
 				//retreive id of clicked element and retrieve from merged list
 				var id = clickedElement.querySelector("#idDiv").innerHTML; 
-				var clickedElementObject = getItemFromList("MergedList", id);
+				var previousElementObject = getItemFromList("MergedList", id)
+				previousElementArray.push(getItemFromList("MergedList", id));
 				
 				//store the object as previously clicked element
-				storeList("PreviousElement", clickedElementObject);
+				storeList("PreviousElement", previousElementObject);
 				
 				
 			}

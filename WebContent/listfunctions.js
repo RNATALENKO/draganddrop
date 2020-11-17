@@ -15,6 +15,15 @@ function storeList(listname, array){
 	localStorage.setItem(listname, stringify(array));
 }
 
+//checks to see if a list exists
+function listExists(listName){
+	var list = getList(listName);
+	if(list.length == 0){
+		return false;
+	}
+	return true; 
+}
+
 
 //returns an array with the list
 function getList(listname){

@@ -47,6 +47,8 @@ rightdropzone.addEventListener("dragover", function(event){
 //on the drop event (which isn't working right now)
 rightdropzone.addEventListener("drop", function(event){
 	
+	
+	
 	//append the dragged element to the rightlist
 	rightlist.appendChild(draggedElement);
 	
@@ -85,6 +87,8 @@ rightdropzone.addEventListener("drop", function(event){
 	
 	//refresh location
 	location.reload(); 
+	
+
 	
 });
 

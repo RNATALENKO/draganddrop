@@ -5,6 +5,8 @@
 <title>Insert title here</title>
 
 
+<script src="hidedisplay.js"></script>
+<script src="loadprevious.js" async></script>
 <script src="listfunctions.js"></script>
 <script src="createopentask.js"></script>
 <script src="loadlists.js"></script>
@@ -13,8 +15,6 @@
 <script src="deletetask.js" defer></script>
 <script src="displaytask.js"></script>
 <script src="color.js" defer></script>
-
-
 
 	<style>
 	
@@ -152,7 +152,6 @@
 				<input type="text" id="description" class="description inp-w"></input>
 				<input type="text" id="hexinput" class="hexinput" value="hex">
 				<button id="hexbutton" class="hexbutton">Add to Pallette</button>
-				
 			</div>
 	
 			<br>
@@ -170,15 +169,17 @@
 				<div id="displaycontainer" class="displaycontainer">
 
 				<div id="contentcontainer" class="contentcontainer">
-					<h1 id="displaycontent">title</h1>
-					<p id="displaydescription">description</p>
-					<span id="displaydate">date</span> <span id ="displaytime">time</span>
+					<h1 id="displaycontent"></h1>
+					<p id="displaydescription"></p>
+					<span id="displaydate"></span> <span id ="displaytime"></span>
 					<p id="displaycolor" class="displaycolor"><p>
 				</div>
 		</div>
 				
 				
 			</div>
+		
+			<script>hideDisplay();</script>
 			<script>addTask();</script>
 			<script>loadLists();</script>
 			<script>displayTasks();</script>

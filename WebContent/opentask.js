@@ -44,6 +44,8 @@ leftdropzone.addEventListener("dragover", function(event){
 //on the left zone, during the drop event, 
 leftdropzone.addEventListener("drop", function(){
 	
+	
+	
 	//attach dragged element to left list
 	leftlist.appendChild(draggedElement);
 	
@@ -79,6 +81,7 @@ leftdropzone.addEventListener("drop", function(){
 	
 	//refresh
 	location.reload(); 
+	
 }); 
 
 
