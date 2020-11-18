@@ -149,6 +149,5 @@ function mergeArrays(listOneArray, listTwoArray){
 	
 	return listThreeArray; 
 	
-	
-	
 }
+
