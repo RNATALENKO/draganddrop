@@ -10,13 +10,15 @@
 <script src="loadprevious.js" async></script>
 <script src="createopentask.js"></script>
 <script src="loadlists.js"></script>
-<script src="closetask.js" defer></script><!--drag and drop  -->
-<script src="opentask.js" defer></script><!-- drag and drop -->
+<!--<script src="closetask.js" defer></script> --><!--drag and drop  -->
+<!--<script src="opentask.js" defer></script> --><!-- drag and drop -->
 <script src="deletetask.js" defer></script>
 <script src="displaytask.js"></script>
 <script src="addcolortask.js" defer></script>
-<script src="addcolorpalette.js"></script>
 <script src="loadpalette.js"></script>
+<script src="addcolorpalette.js"></script>
+<script src="draganddrop.js" defer></script>
+
 
 
 	<style>
@@ -164,6 +166,10 @@
 		}
 		
 		
+		.draggable.dragging{
+			opacity: .3;
+		}
+		
 	
 	</style>
 
@@ -216,8 +222,8 @@
 			<script>hideDisplay();</script>
 			<script>addTask();</script>
 			<script>loadLists();</script>
-			<script>loadPalette();</script>
 			<script>addColorPalette();</script>
+			<script>loadPalette();</script>
 			<script>displayTasks();</script>
 </body>
 </html>

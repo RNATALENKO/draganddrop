@@ -24,6 +24,7 @@ function addColorSquare(paletteId, hex){
 	palette.appendChild(colorsquare);
 }
 
+
 function loadPalette(){
 	
 	//if something in the array, loop through array, for each element, create list item, add the hex

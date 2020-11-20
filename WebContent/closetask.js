@@ -25,14 +25,18 @@ leftDraggables.forEach(function(draggable){
 	
 	//on the drag start, add dragging class, to distinguish element dragged from non-dragged
 	draggable.addEventListener("dragstart", function(){
+		
 		draggable.classList.add("dragging");
+		
 		draggedElement = draggable; 
 		//console.log(draggedElement);
 	});
 	
+	//on drag end remove the class
 	draggable.addEventListener("dragend", function(event){
 		draggable.classList.remove("dragging");
 	});
+	
 	
 });
 
@@ -47,12 +51,10 @@ rightdropzone.addEventListener("dragover", function(event){
 //on the drop event (which isn't working right now)
 rightdropzone.addEventListener("drop", function(event){
 	
-	
-	
 	//append the dragged element to the rightlist
 	rightlist.appendChild(draggedElement);
 	
-	//get input and content
+	//get input and content of dragged element
 	var input = draggedElement.querySelector("#contentDiv").innerHTML; 
 	var id = draggedElement.querySelector("#idDiv").innerHTML; 
 	var taskdescription = draggedElement.querySelector("#descriptionDiv").innerHTML;
@@ -71,7 +73,7 @@ rightdropzone.addEventListener("drop", function(event){
 	};
 	
 	
-	//add the dragged element to the closedTasks array
+	//add the dragged element object to the closedTasks array
 	closedTasks.push(taskObject);
 	
 	
@@ -87,8 +89,6 @@ rightdropzone.addEventListener("drop", function(event){
 	
 	//refresh location
 	location.reload(); 
-	
-
 	
 });
 
