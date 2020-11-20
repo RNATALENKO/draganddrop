@@ -61,6 +61,11 @@ function removeItem(array, id){
 }
 
 
+
+
+
+
+
 //function that finds an element either in open or closed task list then returns the list
 function findList(id){
 	
@@ -150,4 +155,23 @@ function mergeArrays(listOneArray, listTwoArray){
 	return listThreeArray; 
 	
 }
+
+
+//extracts the properties of html element's subchildren
+function htmlToObject(element){
+	
+	var object= {
+			content: element.querySelector("#contentDiv").innerHTML,
+			id: element.querySelector("#idDiv").innerHTML,
+			description: element.querySelector("#descriptionDiv").innerHTML,
+			date: element.querySelector("#dateDiv").innerHTML,
+			time: element.querySelector("#timeDiv").innerHTML,
+			color: element.querySelector("#colorDiv").style.backgroundColor
+	};
+	
+	return object;
+}
+
+
+
 

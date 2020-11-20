@@ -37,6 +37,7 @@ draggables.forEach(function(draggable){
 dropzones.forEach(function(dropzone){
 	
 	dropzone.addEventListener("dragover", function(event){
+		
 		event.preventDefault();
 		
 		//get element that's currently being dragged, append to list not drop zone
@@ -50,3 +51,56 @@ dropzones.forEach(function(dropzone){
 		
 	});
 });
+
+
+
+//on the drop event transfer the data to the appropriate list, delete it from the opposite list
+dropzones.forEach(function(dropzone){
+	
+	dropzone.addEventListener("drop", function(){
+		
+		var draggable = document.querySelector(".dragging"); //get dragging element
+		var draggableId = getId(draggable); //get id of dragged element
+		var dropzonelist = dropzone.firstElementChild; //get current drop zone
+		openTasks = getList("OpenTasks"); //get array from open tasks
+		closedTasks = getList("ClosedTasks"); //get array from closed tasks
+		
+		
+		//if dropzone list rightul and id does not exist in closed tag
+		if(dropzonelist.getAttribute("id") == "rightul"){
+			
+			//push and remove only if element doesn't exist
+			if(getItemFromList("ClosedTasks", draggableId) == null){
+				
+				//add to the closed task list
+				closedTasks.push(htmlToObject(draggable));
+				storeList("ClosedTasks", closedTasks);
+				
+				//remove from open tasks array, store it back in
+				removeItem(openTasks, draggableId)
+				storeList("OpenTasks", openTasks);
+			}
+		}
+		
+		//if left dropzone
+		else if(dropzonelist.getAttribute("id") == "leftul"){
+			
+			//if item doesn't exist in open tasks
+			if(getItemFromList("OpenTasks", draggableId) == null){
+				
+				//add draggabl to the open tasks array
+				openTasks.push(htmlToObject(draggable));
+				storeList("OpenTasks", openTasks);
+				
+				//delete from closed tasks and store
+				removeItem(closedTasks, draggableId);
+				storeList("ClosedTasks", closedTasks);
+				
+			}
+				
+		}
+		
+	});
+});
+
+

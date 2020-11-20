@@ -33,7 +33,6 @@ allElements.forEach(function(element){
 		var updatedList = removeFromList(list, id);
 		storeList(listName, updatedList);
 		
-		
 		//delete from view
 		//we could technically find and remove the child, or just refresh because our loadlist() function runs
 		location.reload();

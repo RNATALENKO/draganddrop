@@ -7,6 +7,7 @@
 
 function hideDisplay(){
 
+
 	if(!listExists("PreviousElement")){
 		displaycontainer.style.display="none";
 	}

@@ -1,6 +1,6 @@
 /**
- * 
- */
+ * code refactored into single js file with half the code
+ 
 
 var closedTasks = []; 
 closedTasks = getList("ClosedTasks");
@@ -92,6 +92,6 @@ rightdropzone.addEventListener("drop", function(event){
 	
 });
 
-
+*/
 
 

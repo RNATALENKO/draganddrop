@@ -1,8 +1,9 @@
 /**
  * this will move tasks from right dropzone to left, and remove from closed task storage, then save open task storage back to local
- */
-
-
+ * 
+ * Note: code refactored to single js file, half the code
+ * 
+ * 
 var openTasks = [];
 openTasks = getList("OpenTasks");
 
@@ -83,5 +84,5 @@ leftdropzone.addEventListener("drop", function(){
 	location.reload(); 
 	
 }); 
-
+ */
 
