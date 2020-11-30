@@ -18,6 +18,7 @@
 <script src="loadpalette.js"></script>
 <script src="addcolorpalette.js"></script>
 <script src="draganddrop.js" defer></script>
+<script src="paletteselection.js"></script>
 
 
 	<style>
@@ -29,7 +30,7 @@
 		
 		.hexinput{
 			width:75px; 
-			color: rgba(0,0,0,0.5);
+			color: #c2c2c2;
 		}
 		
 		.inp-w{
@@ -115,19 +116,14 @@
 		}
 		
 		.colorsquare{
-			border:1px solid black;
+			border:2px solid black;
 			width: 20px; 
 			height:20px;
 			background-color:yellow;
 			box-sizing: border-box;	
+			cursor:pointer;
+			border:none;
 		}
-		
-		
-		
-		
-		
-		
-		
 		
 		 /* task internal */
 		 .contentDiv{
@@ -140,8 +136,6 @@
 			position:relative;
 			display:inline; 
 			border:1px solid black; 
-			
-			
 		}
 		
 		.descriptionDiv{
@@ -219,11 +213,14 @@
 				
 			</div>
 			
+			
 			<script>hideDisplay();</script>
 			<script>addTask();</script>
 			<script>loadLists();</script>
 			<script>addColorPalette();</script>
 			<script>loadPalette();</script>
+			<script>highlightColor();</script>
 			<script>displayTasks();</script>
+			
 </body>
 </html>

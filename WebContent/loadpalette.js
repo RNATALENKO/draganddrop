@@ -17,7 +17,7 @@ function addColorSquare(paletteId, hex){
 	//create and style square
 	var colorsquare = document.createElement("LI");
 	colorsquare.classList.add("colorsquare");
-	colorsquare.setAttribute("id", colorsquare);
+	colorsquare.setAttribute("id", "colorsquare");
 	colorsquare.style.backgroundColor = hex; 
 	
 	//append color square to paletted

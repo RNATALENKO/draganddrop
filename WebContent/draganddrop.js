@@ -18,7 +18,7 @@ var dropzones = document.querySelectorAll(".dropzone");
 draggables.forEach(function(draggable){
 	
 	//print id's of draggables
-	console.log(draggable.getAttribute("id"));
+	//console.log(draggable.getAttribute("id"));
 	
 	
 	draggable.addEventListener("dragstart", function(){
@@ -29,7 +29,6 @@ draggables.forEach(function(draggable){
 	draggable.addEventListener("dragend", function(){
 		draggable.classList.remove("dragging");
 	});
-	
 });
 
 
@@ -51,6 +50,7 @@ dropzones.forEach(function(dropzone){
 		
 	});
 });
+
 
 
 
@@ -81,6 +81,7 @@ dropzones.forEach(function(dropzone){
 				storeList("OpenTasks", openTasks);
 			}
 		}
+		
 		
 		//if left dropzone
 		else if(dropzonelist.getAttribute("id") == "leftul"){

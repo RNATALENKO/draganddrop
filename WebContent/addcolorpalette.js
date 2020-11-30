@@ -27,7 +27,22 @@ function addColorPalette(){
 			
 			//store the color palettes as list in local storage
 			storeList("ColorPalette", hexArray);
+			
+			
+			
 		}
+	});
+	
+	
+	
+	//when focus on color palette change style
+	//event listener when any key is pressed, change color of text in hexinput 
+	var hexinput = document.querySelector(".hexinput");
+	hexinput.addEventListener("focusin", function(event){
+		event.target.style.color= "#21201e";
+	});
+	hexinput.addEventListener("focusout", function(event){
+		event.target.style.color="#c2c2c2";
 	});
 	
 }
