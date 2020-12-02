@@ -17,6 +17,9 @@
 
 var highlighted = false; 
 var highlightedColor = null;
+var highlightedList = null;
+
+var hexinput = document.querySelector
 
 function highlightColor(){
 	
@@ -48,18 +51,37 @@ function highlightColor(){
 					}
 				}
 				
-				//turn on the next selected elment's border
-				element.target.style.border = "2px solid black";
-				highlightedColor = element.target.style.backgroundColor;
+				//if the element clicked is not the palette i.e. square, 
+				if(element.target.getAttribute("id")!="palette"){
+					
+					//turn on the next selected elment's border
+					element.target.style.border = "2px solid black";
+					highlightedColor = element.target.style.backgroundColor;
+				}
+				
+				//show clicked element's hex inside input
+				hexinput.setAttribute("value", RGBToHex(colorStringToArray(highlightedColor)));
+				
 				
 			}		
 			
-			
 			//store the selected color
 			storeList("HighlightedColor", highlightedColor);
+			
+			//but if clicked on list or outside and any other color
+			if(element.target.getAttribute("id") == "palette"){
+			
+				//then delete the list from local storage
+				deleteList("HighlightedColor");
+				
+			}
+		
+		
 	});
 }
 	
+
+
 
 
 

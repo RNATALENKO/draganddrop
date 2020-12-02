@@ -10,6 +10,7 @@ openTasks = [];
 
 
 
+
 //creates html li item, adds to LEFT UL
 function createListItem(list, content, id, taskdescription, date, time, color){
 	

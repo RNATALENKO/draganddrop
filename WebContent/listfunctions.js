@@ -15,6 +15,11 @@ function storeList(listname, array){
 	localStorage.setItem(listname, stringify(array));
 }
 
+//function that deletes list from local storage
+function deleteList(listname){
+	localStorage.removeItem(listname);
+}
+
 //checks to see if a list exists
 function listExists(listName){
 	var list = getList(listName);
