@@ -34,9 +34,10 @@ function createListItem(list, content, id, taskdescription, date, time, color){
 	
 	//create trash div
 	var trashDiv = document.createElement("DIV");
-	trashDiv.appendChild(document.createTextNode("trash"));
+	trashDiv.appendChild(document.createTextNode("delete"));
 	trashDiv.setAttribute("id", "trashDiv");
 	trashDiv.classList.add("trashDiv");
+	trashDiv.setAttribute("class" , "material-icons");
 	
 	//create task description div
 	var descriptionDiv = document.createElement("DIV");
@@ -84,47 +85,62 @@ function addTask(){
 		
 		//content input
 		var input = content.value;
+
+		//if content input is not empty, create and store task
+		if(input!= "" && input!= null){
+			
+			//id
+			var id = Date.now(); 
+			
+			//description 
+			var taskdescription = description.value; 
+			
+			//date
+			var dateObj = new Date(); 
+			var date =  dateObj.getMonth() +1 + "/" + dateObj.getDate() + "/" + dateObj.getFullYear();
+			
+			//time
+			var time = dateObj.getHours() + ":" + dateObj.getMinutes() + ":" + dateObj.getSeconds();
+			
+			//if valid hex color is input, otherwise it's white
+			var colorinput = hexinput.value
+			var color = validColor(colorinput)? colorinput :"#ffffff";
+			
+			//set the object 
+			var taskObject = {
+					content: input,
+					id: id,
+					description: taskdescription,
+					date: date,
+					time: time,
+					color: color
+			}
+			
+			
+			//add object to task array
+			openTasks.unshift(taskObject);
+			
+			//store task array in local storage
+			localStorage.setItem("OpenTasks", stringify(openTasks));
+			
+			/* this method breaks down and prevents passing in the task description*/
+			//create the list item
+			createListItem(leftul, input, id, taskdescription, date, time, color); 
+			
+			//refresh page to activate drag and drop
+			location.reload();
+			
+	
+		}
 		
-		//id
-		var id = Date.now(); 
-		
-		//description 
-		var taskdescription = description.value; 
-		
-		//date
-		var dateObj = new Date(); 
-		var date =  dateObj.getMonth() +1 + "/" + dateObj.getDate() + "/" + dateObj.getFullYear();
-		
-		//time
-		var time = dateObj.getHours() + ":" + dateObj.getMinutes() + ":" + dateObj.getSeconds();
-		
-		//if valid hex color is input, otherwise it's white
-		var colorinput = hexinput.value
-		var color = validColor(colorinput)? colorinput :"#ffffff";
-		
-		//set the object 
-		var taskObject = {
-				content: input,
-				id: id,
-				description: taskdescription,
-				date: date,
-				time: time,
-				color: color
+		//otherwise display error
+		else{
+			
+			var error = document.querySelector(".error");
+			error.innerHTML = "Cannot be empty";
 		}
 		
 		
-		//add object to task array
-		openTasks.unshift(taskObject);
-		
-		//store task array in local storage
-		localStorage.setItem("OpenTasks", stringify(openTasks));
-		
-		/* this method breaks down and prevents passing in the task description*/
-		//create the list item
-		createListItem(leftul, input, id, taskdescription, date, time, color); 
-		
-		//refresh page to activate drag and drop
-		location.reload();
 	
 	});
 }

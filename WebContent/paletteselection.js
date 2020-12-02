@@ -19,7 +19,6 @@ var highlighted = false;
 var highlightedColor = null;
 var highlightedList = null;
 
-var hexinput = document.querySelector
 
 function highlightColor(){
 	
@@ -37,7 +36,6 @@ function highlightColor(){
 					highlighted = true; 
 					highlightedColor = element.target.style.backgroundColor; 
 				}
-
 			}	
 			
 			//if highlighed
@@ -59,6 +57,7 @@ function highlightColor(){
 					highlightedColor = element.target.style.backgroundColor;
 				}
 				
+				
 				//show clicked element's hex inside input
 				hexinput.setAttribute("value", RGBToHex(colorStringToArray(highlightedColor)));
 				
@@ -79,6 +78,8 @@ function highlightColor(){
 		
 	});
 }
+
+
 	
 
 

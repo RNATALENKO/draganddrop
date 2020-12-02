@@ -28,6 +28,8 @@ hexbutton.addEventListener("click",function(){
 		storeList("Color", color);
 	}
 	
+	
+	
 });
 
 

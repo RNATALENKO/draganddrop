@@ -1,3 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * 
  */
@@ -27,13 +41,10 @@ function addColorPalette(){
 			
 			//store the color palettes as list in local storage
 			storeList("ColorPalette", hexArray);
-			
-			
-			
 		}
+		
+		hexinput.setAttribute("value", RGBToHex(colorStringToArray(highligtedColor)));
 	});
-	
-	
 	
 	//when focus on color palette change style
 	//event listener when any key is pressed, change color of text in hexinput 
@@ -46,6 +57,8 @@ function addColorPalette(){
 	});
 	
 }
+
+
 
 
 

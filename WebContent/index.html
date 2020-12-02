@@ -22,10 +22,16 @@
 <script src="draganddrop.js" defer></script>
 <script src="paletteselection.js"></script>
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 
 	<style>
 	
-	
+		body{
+			font-family:Montserrat;
+		}
+
 		.description{
 			resize:none; 
 		}
@@ -132,12 +138,13 @@
 		 	border:1px solid black; 
 		 	white-space:nowrap;
 		 	overflow-x: hidden;
+		 	font-weight:500;
 		 }
+		 
 		 
 		.trashDiv{
 			position:relative;
 			display:inline; 
-			border:1px solid black; 
 		}
 		
 		.descriptionDiv{
@@ -145,13 +152,12 @@
 		}
 		
 		.dateDiv{ 
-			border:1px solid black;
 			display:inline; 
 		}
 		
 		.timeDiv{
-			border:1px solid black; 
 			display:inline;
+			float:right;
 		}
 		
 		.colorDiv{
@@ -166,6 +172,11 @@
 			opacity: .3;
 		}
 		
+		
+		.error{
+			color:red;
+		}
+		
 	
 	</style>
 
@@ -175,19 +186,18 @@
 <body>
 
 			<div>
-				<input id="content" class="inp-w"> 
+				<input id="content" class="inp-w content"> 
 				<button id="createbtn">create task</button>
+				<span id="error" class="error"></span>
 			</div>
 	
 			<div>
 				<input type="text" id="description" class="description inp-w"></input>
-				<input type="text" id="hexinput" class="hexinput" value="#5aa832">
+				<input type="text" id="hexinput" class="hexinput">
 				<button id="hexbutton" class="hexbutton">Add to Task</button>
 				<button id="palettebutton" class="palettebutton">Add to palette</button>
-				<ul id="palette" class="palette">
-					<li id="colorsquare" class="colorsquare"></li>
-
-				</ul>
+				<label>(#ffffff)</label>
+				<ul id="palette" class="palette"></ul>
 			</div>
 	
 			<br>
@@ -216,13 +226,14 @@
 			</div>
 			
 			
-			<script>hideDisplay();</script>
-			<script>addTask();</script>
+			<script>hideDisplay();</script> 
+			<script>addTask();</script> 
 			<script>loadLists();</script>
 			<script>addColorPalette();</script>
 			<script>loadPalette();</script>
 			<script>highlightColor();</script>
 			<script>displayTasks();</script>
+
 			
 </body>
 </html>
