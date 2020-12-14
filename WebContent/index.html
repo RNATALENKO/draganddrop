@@ -6,14 +6,12 @@
 
 <script src="listfunctions.js"></script>
 <script src="colorfunctions.js"></script>
-
-
 <script src="hidedisplay.js"></script>
 <script src="loadprevious.js" async></script>
 <script src="createopentask.js"></script>
 <script src="loadlists.js"></script>
-<!--<script src="closetask.js" defer></script> --><!--drag and drop  -->
-<!--<script src="opentask.js" defer></script> --><!-- drag and drop -->
+<!--<script src="closetask.js" defer></script> --><!-- refactored into drag and drop  -->
+<!--<script src="opentask.js" defer></script> --><!-- refactored into drag and drop -->
 <script src="deletetask.js" defer></script>
 <script src="displaytask.js"></script>
 <script src="addcolortask.js" defer></script>
@@ -30,6 +28,13 @@
 	
 		body{
 			font-family:Montserrat;
+		}
+		
+		.inputwrapper{
+			border:1px solid grey; 
+			padding:30px;
+			width:40%;
+		
 		}
 
 		.description{
@@ -81,6 +86,7 @@
 			margin-bottom:10px;
 			border-radius:15px; 
 			overflow:hidden;
+			background-color:white;
 		}
 		
 	
@@ -89,6 +95,17 @@
 		}
 		
 		
+		
+		/*color buttons*/
+		.colorbuttonwrapper{
+			padding:10px;
+		}
+		
+		
+		
+		
+		
+		/*display*/
 		.displaycontainer{
 			width:25%; 
 			border: 1px solid grey; 
@@ -110,6 +127,16 @@
 			height:25px; 
 			border:1px solid black; 
 		}
+		
+		#displaydate{
+			font-size:13px;
+		}
+		
+		#displaytime{
+			font-size:13px;
+		}
+		
+		
 		
 		
 		/*palette*/
@@ -138,13 +165,16 @@
 		 	border:1px solid black; 
 		 	white-space:nowrap;
 		 	overflow-x: hidden;
-		 	font-weight:500;
+		 	font-weight:700;
+		 	font-size:22px;
 		 }
 		 
-		 
-		.trashDiv{
+		
+		#trashDiv{
 			position:relative;
-			display:inline; 
+			top:20px;
+			left: 130px;
+			font-size:22px;
 		}
 		
 		.descriptionDiv{
@@ -152,19 +182,29 @@
 		}
 		
 		.dateDiv{ 
+			position:relative;
 			display:inline; 
+			font-size:10px;
+			top:40px;
+			left:15px;
 		}
 		
 		.timeDiv{
 			display:inline;
 			float:right;
+			font-size:10px;
+			position:relative;
+			top:52px;
 		}
 		
 		.colorDiv{
-			width:15px; 
-			height: 15px; 
+			width:13px; 
+			height: 13px; 
 			border:1px solid black; 
 			display:block; 
+			position:relative;
+			top:23px;
+			left:3px;
 		}
 		
 		
@@ -184,24 +224,33 @@
 
 </head>
 <body>
-
-			<div>
-				<input id="content" class="inp-w content"> 
-				<button id="createbtn">create task</button>
-				<span id="error" class="error"></span>
+			<div id="inputwrapper" class="inputwrapper">
+				<div>
+					<label class="tasklabel">Title: </label>
+					<input id="content" class="inp-w content"> 
+					
+					<span id="error" class="error"></span>
+				</div>
+				<div>
+					<label class="tasklabel">Description: </label>
+					<input type="text" id="description" class="description inp-w"></input>
+					<div> 
+						<label class="tasklabel">Color: </label>
+						<input type="text" id="hexinput" class="hexinput">
+						<div id="colorbuttonwrapper" class="colorbuttonwrapper">
+							<button id="hexbutton" class="hexbutton">Add to Task</button>
+							<button id="palettebutton" class="palettebutton">Add to palette</button>
+							<label>(#ffffff)</label>
+						</div>
+						
+						<ul id="palette" class="palette"></ul>
+						
+						<button id="createbtn">create task</button>
+					</div>
+				</div>
 			</div>
-	
-			<div>
-				<input type="text" id="description" class="description inp-w"></input>
-				<input type="text" id="hexinput" class="hexinput">
-				<button id="hexbutton" class="hexbutton">Add to Task</button>
-				<button id="palettebutton" class="palettebutton">Add to palette</button>
-				<label>(#ffffff)</label>
-				<ul id="palette" class="palette"></ul>
-			</div>
-	
+		
 			<br>
-			
 			<div class="dropcontainer">
 				<div id="leftdropzone" class="dropzone leftdropzone">
 					<ul id="leftul" class="ul">
@@ -224,7 +273,6 @@
 				
 				
 			</div>
-			
 			
 			<script>hideDisplay();</script> 
 			<script>addTask();</script> 
