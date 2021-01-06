@@ -37,7 +37,8 @@ function createListItem(list, content, id, taskdescription, date, time, color){
 	trashDiv.appendChild(document.createTextNode("delete"));
 	trashDiv.setAttribute("id", "trashDiv");
 	trashDiv.classList.add("trashDiv");
-	trashDiv.setAttribute("class" , "material-icons");
+	trashDiv.setAttribute("class" , "material-icons trashicon");
+	
 	
 	//create task description div
 	var descriptionDiv = document.createElement("DIV");

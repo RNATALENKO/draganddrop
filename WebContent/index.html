@@ -19,6 +19,7 @@
 <script src="addcolorpalette.js"></script>
 <script src="draganddrop.js" defer></script>
 <script src="paletteselection.js"></script>
+<script src="loadwidth.js" defer></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -28,14 +29,41 @@
 	
 		body{
 			font-family:Montserrat;
-		}
-		
-		.inputwrapper{
-			border:1px solid grey; 
 			padding:30px;
-			width:40%;
 		
 		}
+		
+		.mainheading{
+		
+		width:96%;
+		padding:30px;
+		color:white;
+		background-color: orange;
+
+		border-radius:10px;
+		font-size:48px;
+		font-weight:600;
+		margin:auto;
+		margin-bottom:50px;
+		}
+		
+		
+		/*  create task ui */
+		
+		.inputheading{
+			font-size:36px;
+		}
+		
+		.inputwrapper{ 
+			padding:30px;
+			width:19%;
+			border-radius:10px;
+			min-width:300px;
+			background-color:#9fe0b1;
+			margin-right:10px;
+		}
+		
+	
 
 		.description{
 			resize:none; 
@@ -44,12 +72,76 @@
 		.hexinput{
 			width:75px; 
 			color: #c2c2c2;
+			border:none;
 		}
 		
 		.inp-w{
-			width:200px; 
+			width:100px; 
 			margin-bottom:20px;
+			border:none;
 		}
+		
+		
+		
+		.btn{
+		
+			padding:5px 10px 5px 10px;
+			background-color:#9c9b97;
+			border:none;
+			color:white;
+			border-radius:10px;
+		
+		}
+		
+		.tasklabel{
+			color:black;
+		}
+		
+		
+		
+		
+		/* section headings */
+		.titlecontainer{
+			display:flex; 
+			margin-bottom:10px;
+			
+		}
+		
+		.titlecontainer > div{
+			font-size:36px;
+		}
+		
+		.inputheading{
+			min-width:380px;
+			width:30%;
+			
+		}
+		
+		.opentaskheading{
+			min-width:310px;
+			width:50%;
+		}
+		
+		.closedtaskheading{
+			min-width:310px;
+			width:50%;
+		}
+		
+		.displaytaskheading{
+			
+			width:25%;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/* drop zone styleing */
 	
 		.dropcontainer{
 			width:100%;
@@ -58,15 +150,21 @@
 		}
 		
 		.dropzone{
-			border:1px solid grey; 
+		
 			width:50%; 
 			border-radius:10px; 
 			margin-bottom:10px;  
 			padding:20px;
+			min-width:275px;
 		}
 		
 		.leftdropzone{
 			margin-right:10px; 
+			background-color:#a1b0f0;
+		}
+		
+		.rightdropzone{
+			background-color:#98d999;
 		}
 		
 		.ul{
@@ -81,7 +179,6 @@
 			margin-right:10px;  
 			width: 150px; 
 			height:85px; 
-			border:1px solid grey; 
 			cursor:pointer; 
 			margin-bottom:10px;
 			border-radius:15px; 
@@ -96,6 +193,10 @@
 		
 		
 		
+		
+		
+		
+		
 		/*color buttons*/
 		.colorbuttonwrapper{
 			padding:10px;
@@ -105,19 +206,22 @@
 		
 		
 		
+		
 		/*display*/
 		.displaycontainer{
 			width:25%; 
-			border: 1px solid grey; 
+			background-color:#e3b330;
 			margin-left: 10px; 
 			border-radius:15px; 
 			padding:10px;
 		}
 		
 		.contentcontainer{
-			border:1px solid grey;  
+			
 			border-radius:15px;
 			word-wrap:break-word; 
+			background-color:white;
+			padding:10px;
  
 		}
 		
@@ -139,15 +243,21 @@
 		
 		
 		
+		
+		
+		
+		
+		
 		/*palette*/
 		.palette{
 			width:100px;
-			minimum-width:100px;   
-			border: 1px solid grey; 
+			min-height:100px;   
 			display:flex; 
 			list-style: none; 
-			padding:5px;
+			padding:15px;
 			flex-wrap:wrap;
+			border-radius:10px;
+			background-color:white;
 		}
 		
 		.colorsquare{
@@ -162,11 +272,11 @@
 		
 		 /* task internal */
 		 .contentDiv{
-		 	border:1px solid black; 
 		 	white-space:nowrap;
 		 	overflow-x: hidden;
 		 	font-weight:700;
 		 	font-size:22px;
+		 	color:#272b28;
 		 }
 		 
 		
@@ -174,7 +284,7 @@
 			position:relative;
 			top:20px;
 			left: 130px;
-			font-size:22px;
+			font-size:22px; 
 		}
 		
 		.descriptionDiv{
@@ -187,7 +297,7 @@
 			font-size:10px;
 			top:40px;
 			left:15px;
-		}
+		} 
 		
 		.timeDiv{
 			display:inline;
@@ -217,6 +327,12 @@
 			color:red;
 		}
 		
+		
+		.trashicon{
+			color:#272b28;
+		}
+		
+		
 	
 	</style>
 
@@ -224,11 +340,22 @@
 
 </head>
 <body>
+			
+			
+			
+		<div id="mainheading" class="mainheading">My task board</div>
+		<div id="titlecontainer" class="titlecontainer"> 
+				<div id="inputheading" class="inputheading">Create a task: </div>
+				<div id="opentaskheading" class="opentaskheading">Open tasks:</div>
+				<div id="closedtaskheading" class="closedtaskheading">Closed tasks:</div>
+				<div id="displaytaskheading" class="displaytaskheading"></div>
+			</div>
+			
+			<div style="display:flex">
 			<div id="inputwrapper" class="inputwrapper">
-				<div>
+				<div id="titlewrapper" class="titlewrapper">
 					<label class="tasklabel">Title: </label>
 					<input id="content" class="inp-w content"> 
-					
 					<span id="error" class="error"></span>
 				</div>
 				<div>
@@ -237,20 +364,27 @@
 					<div> 
 						<label class="tasklabel">Color: </label>
 						<input type="text" id="hexinput" class="hexinput">
+						<label class="tasklabel">(#ffffff)</label>
 						<div id="colorbuttonwrapper" class="colorbuttonwrapper">
-							<button id="hexbutton" class="hexbutton">Add to Task</button>
-							<button id="palettebutton" class="palettebutton">Add to palette</button>
-							<label>(#ffffff)</label>
+							<button id="hexbutton" class="hexbutton btn">Add to Task</button>
+						<button id="palettebutton" class="palettebutton btn">Add to palette</button>
 						</div>
 						
-						<ul id="palette" class="palette"></ul>
+						<label class="tasklabel">Palette:</label>
+						<ul id="palette" class="palette">
+							<li class="colorsquare" style="background-color: #eb4034;">
+							<li class="colorsquare" style="background-color: #2db34a">
+							<li class="colorsquare" style="background-color: #2d41b3">
 						
-						<button id="createbtn">create task</button>
+						</ul>
+						
+						<button id="createbtn" class="btn">Start Task</button>
 					</div>
 				</div>
 			</div>
 		
 			<br>
+			
 			<div class="dropcontainer">
 				<div id="leftdropzone" class="dropzone leftdropzone">
 					<ul id="leftul" class="ul">
@@ -263,17 +397,20 @@
 				
 				<div id="displaycontainer" class="displaycontainer">
 
-				<div id="contentcontainer" class="contentcontainer">
-					<h1 id="displaycontent"></h1>
-					<p id="displaydescription"></p>
-					<span id="displaydate"></span> <span id ="displaytime"></span>
-					<p id="displaycolor" class="displaycolor"><p>
+					<div id="contentcontainer" class="contentcontainer">
+						<h1 id="displaycontent"></h1>
+						<p id="displaydescription"></p>
+						<span id="displaydate"></span> <span id ="displaytime"></span>
+						<p id="displaycolor" class="displaycolor"><p>
+					</div>
 				</div>
-		</div>
 				
 				
 			</div>
 			
+		</div>
+			
+			<script>adjustwidth();</script>
 			<script>hideDisplay();</script> 
 			<script>addTask();</script> 
 			<script>loadLists();</script>

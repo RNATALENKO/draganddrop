@@ -60,6 +60,8 @@ function displayTasks(){
 				//store the object as previously clicked element
 				storeList("PreviousElement", previousElementObject);
 				
+				//change width of headings
+				opentaskheading.style.width = "50%";
 				
 			}
 		});
